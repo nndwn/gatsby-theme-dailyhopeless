@@ -5,9 +5,9 @@
 
 ## How to use
 
-    - ```install gatsby cli```
-    - ```download this repository```
-    - ```npm install```
+    - install gatsby cli
+    - download this repository
+    - npm install
 
 ## How to change data
 if you familiar with gatsby js you can change with name folder data and file gatsby-cofig.js
