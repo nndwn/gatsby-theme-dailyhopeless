@@ -14,4 +14,4 @@ if you familiar with gatsby js you can change with name folder data and file gat
 ##How to change color
 style using emotion so you can change color and font template find file rootCss.js, you can change everthing in there.
 
-nb : if im wrong please notice me, thank you
+nb : if im wrong Please let me know
