@@ -39,18 +39,35 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-RR06VWV1K2", // Google Analytics / GA
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+          exclude: ["/preview/**", "/do-not-track/me/too/"],
+          delayOnRouteUpdate: 0,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
         path: `${__dirname}/src/data/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
+        ignore: [`**/\.*`], 
       },
     },
     {
       resolve: `gatsby-transformer-json`,
       options : {
         typeName : ({node}) => node.name.charAt(0).toUpperCase() + node.name.slice(1)
-        //config name without lastname JSON
       }
     },
     `gatsby-plugin-sitemap`,

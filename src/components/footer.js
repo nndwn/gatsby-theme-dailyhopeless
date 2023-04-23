@@ -1,18 +1,9 @@
 import React from "react";
-import Logo from "../logo";
-import Icons from "../icons";
-import TemplateData from "../../templateData";
+import Icons from "./icons";
 import { css } from "@emotion/react";
-import { graphql, useStaticQuery } from "gatsby";
-import { mq, color } from "../../rootCss";
+import { mq, color } from "./rootCss";
 
-export const Footerr = ({children}) => {
-    const {
-        title,
-        location,
-        country,
-        author
-    } = TemplateData()
+export const Footerr = ({children, style, data}) => {
     const year =  new Date().getFullYear()
     return(
     <footer css={css`
@@ -45,6 +36,7 @@ export const Footerr = ({children}) => {
                 flex-direction: row;
             }
         }
+    ${style}
     `}>
         <div>
             {children}
@@ -55,7 +47,7 @@ export const Footerr = ({children}) => {
                             icon="copyright"
                             size={12}
                         />
-                        <span>{year}. {title}. {location}, {country}. </span>
+                        <span>{year}. {data.title}. {data.location}, {data.country}. </span>
                     </div>
                     <div >
                         <span> made with </span>
@@ -66,7 +58,7 @@ export const Footerr = ({children}) => {
                                 margin: 0 0.25rem;
                             `}
                         />
-                         {author} 
+                         {data.author} 
                     </div>
                 </div>
             </footer>
@@ -74,24 +66,9 @@ export const Footerr = ({children}) => {
     </footer>
 )}
 
-export const Socialmedia = () => {
-    const query = useStaticQuery(graphql`
-        query {
-            allSite {
-                nodes {
-                    siteMetadata {
-                        socialmedia {
-                            link
-                            name
-                        }   
-                    }
-                }
-            }
-        }
-    `)
-    const data = query.allSite.nodes
+export const Socialmedia = ({data}) => {
     return (
-        <ul className="list-style-none d-flex my-4" css={css`
+        <ul css={css`
             list-style: none;
             display: flex;
             margin: 2.5rem 0;
@@ -99,7 +76,7 @@ export const Socialmedia = () => {
                 margin: 0 0.5rem;
             } 
         `}>
-            {data[0].siteMetadata.socialmedia.map(node => (
+            {data.map(node => (
                 <li key={node.name}>
                     <a href={node.link} aria-label={node.name}>
                         <Icons 
@@ -113,29 +90,3 @@ export const Socialmedia = () => {
         </ul>
     )
 }
-const Footer = () => {
-    return(
-        <Footerr>
-            <Logo
-                size={35}
-                style={css`
-                    display: flex;
-                    background-color: ${color.yellow};
-                    padding: 0.5rem 1rem;
-                    margin-bottom: 2.5rem;
-                    circle {
-                        fill: ${color.dark};
-                    }
-                    path {
-                        fill: ${color.yellow};
-                    }
-                    h1 {
-                        font-size: 1.5rem;
-                        margin-left: 1rem;
-                    }
-                `}
-            />
-            <Socialmedia/>
-        </Footerr>
-)}
-export default Footer

@@ -1,28 +1,26 @@
 import React from "react";
 import { GatsbyImage,getImage } from "gatsby-plugin-image";
 import { css } from "@emotion/react";
-import { mq, mx, color } from "../../rootCss";
-import TemplateData from "../../templateData";
+import { mq, mx, color } from "../../../components/rootCss";
 import { 
         start, 
         starttext, 
         startTextHeadline,
         startImageHeadline, 
         fade, 
-        startImageMove } from "./keyframeHeadline"
+        startImageMove } from "../animate"
 
-const Headline = ({data, scroll}) => {
-    const {title} = TemplateData();
-    const h1 = data.headline[0].h1
-    const text = data.headline[0].h2.split(' ')
+const Headline = ({title, data, scroll}) => {
+    
+    const h1 = data[0].headline.map(node => node.h1 )
+    const text = data[0].headline.map(node => node.h2)[0].split(' ')
     const last = text.pop()
     const h2 = text.join(' ')
     return(
     <section id="mvAreas" className={scroll ? "resize": ""} css={css`
         overflow: hidden;
         height: 31.25rem;
-        margin-bottom: 2rem;
-        position: relative;
+        margin-bottom: 2rem; 
         & > div {
             margin: 0 1rem;
             position: absolute;
@@ -32,7 +30,7 @@ const Headline = ({data, scroll}) => {
             h2 {
                 font-size: 3rem;
                 white-space: nowrap;
-                font-family: anton;
+                font-family: anton, sans-serif;
                 text-transform: capitalize;
             }
             h3{
@@ -45,12 +43,12 @@ const Headline = ({data, scroll}) => {
         &.resize > div {
             opacity: 0;
         }
-        &.resize > ul , &.resize > ul:before{
+        &.resize > ul {
             height: 7.5rem;
         }
         ul {
             overflow: hidden;
-            width: 101%;
+            width: 100%;
             list-style: none;
             position: relative;
             height: 31.25rem;
@@ -58,16 +56,7 @@ const Headline = ({data, scroll}) => {
             top: 50%;
             transform: translate(-50%, -50%);
             transition: all .3s;
-            li {
-                animation: ${fade} 10s linear infinite;
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                > div {
-                    min-height: 31.25rem;
-                    transition: all .3s;
-                }
-                > div::before {
+            &::before {
                     background-color: ${color.dark50};
                     content: "";
                     display: inline-block;
@@ -78,6 +67,15 @@ const Headline = ({data, scroll}) => {
                     transition: all .3s;
                     width: 100%;
                     z-index: 46;
+                }
+            li {
+                animation: ${fade} 10s linear infinite;
+                position: absolute;
+                opacity: 0;
+                width: 100%;
+                > div {
+                    min-height: 31.25rem;
+                    transition: all .3s;
                 }
             }
             li: last-child {
@@ -102,7 +100,7 @@ const Headline = ({data, scroll}) => {
                 animation: ${starttext} 5s;
                 color: ${color.dark};
                 content: "${title.toUpperCase()}";
-                font-family: anton;
+                font-family: anton,sans-serif;
                 font-size: 3rem;
                 line-height: 3.333;
                 padding: 2rem 2rem 0 0;
@@ -156,7 +154,7 @@ const Headline = ({data, scroll}) => {
             <h3>{h2}<span> {last}</span></h3>
         </div>
         <ul >
-            {data.slide.map(node => (
+            {data[0].slide.map(node => (
                     <li key={node.alt}>
                         <GatsbyImage
                             image={getImage(node.image)}

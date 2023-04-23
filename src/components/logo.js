@@ -1,11 +1,11 @@
 
 import React from "react";
 import { Link } from "gatsby";
-import TemplateData from "../templateData";
+import Data from "./Data";
 import { css } from "@emotion/react";
 
 const Logo = ({ size, style}) => {
-    const { title } = TemplateData()
+    const { title } = Data().primary
     return (
         <div css={style}  >
             <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 125.5 125.5">

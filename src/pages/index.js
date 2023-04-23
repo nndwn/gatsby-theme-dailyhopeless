@@ -1,11 +1,27 @@
-import * as React from "react"
+import React from "react"
+import Template from "../tempaltes/dailyhopeless/template"
+import Seo from "../components/seo"
+import Data from "../components/Data"
+
 
 const IndexPage = () => {
   return (
-    <div></div>
+    <Template data={Data()} />
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => {
+  return(
+    <>
+      <Seo 
+        desc= {Data().second[0].description}
+        keyword ={Data().second[0].keyword}
+        lang = {Data().second[0].lang}
+        language = {Data().second[0].language}
+        />
+    </>
+   
+  )
+}

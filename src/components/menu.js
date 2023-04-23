@@ -1,11 +1,11 @@
-import React, { Fragment} from "react"
+import React,{Fragment} from "react"
 import { css } from "@emotion/react";
-import { color } from "../rootCss";
+import { color } from "./rootCss";
 
-const Nav = ({menu, children, style}) => {
+const Menu = ({menu, children, style}) => {
     return(
     <ul css={style}>
-        {menu.map(node => (
+        {menu[0].map(node => (
             <Fragment key={node.name}>
                 <li>
                     <a href={`#${node.link}`}>{node.name}</a>
@@ -26,4 +26,6 @@ export const Currentline = () => (
     `}></li>
 ) 
 
-export default Nav
+
+
+export default Menu

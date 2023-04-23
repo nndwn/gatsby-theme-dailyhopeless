@@ -1,0 +1,73 @@
+[   {
+        "lang": "en",
+        "language": "English",
+        "description": "Create your website look professional, elegant, and responsive. We are indie developers with daily hopeless.",
+        "keyword":"developer website, create website, sell theme template,ui design, blog, create ecommerce, website design",
+        "menu" : [
+            {"name":"about", "link":"mainTitleArea"},
+            {"name": "services", "link":"services"},
+            {"name": "contact", "link":"contact"} 
+        ],
+        "headline": [
+            {
+                "h1": "here we go again",
+                "h2": "make people's lives simple."
+            }
+        ],
+        "slide" : [
+            {
+                "image": "./images/slide1.jpg",
+                "alt": "slide1"
+            },
+            {
+                "image": "./images/slide2.jpg",
+                "alt": "slide2"
+            }
+        ],
+        "services": [
+            {
+                "title":"Themes",
+                "description" : "We have made many website themes you can choose and previews. We accept custom themes according to UI design you provide. If you have a problem with  we provide themes, we are ready to help you.",
+                "image": "./images/image_1.jpg",
+                "alt": "image_1",
+                "icon": "paintbucket",
+                "credit": "Photo by domenico loia unsplash",
+                "link": null
+            },
+            {
+                "title":"UI Design",
+                "description" : "We have many UI designs. You can see the results we finished here. If you are confused about UI design, we can serve to make it and give a description of your Bussiness or better yet already have UX Design.",
+                "image": "./images/image_2.jpg",
+                "alt": "image_2",
+                "icon": "penvector",
+                "credit": "Photo by pankaj patel unsplash",
+                "link": null
+            },
+            {
+                "title":"Blog",
+                "description" : "We wrote a lot of articles about tips and tricks in web software development and you can read them freely. besides that if you want to create your own blog like our blog, we can serve to make it.",
+                "image": "./images/image_3.jpg",
+                "alt": "image_3",
+                "icon": "doc",
+                "credit": "Photo by Super Snapper unsplash",
+                "link": "https://blog.dailyhopeless.com"
+            },
+            {
+                "title":"ecommerce",
+                "description" : "We also serve to create a simple ecommerce website. You can see our portfolio of ecommerce.",
+                "image": "./images/image_4.jpg",
+                "alt": "image_4",
+                "icon": "bucket",
+                "credit": "Photo by charlesdeluvio unsplash",
+                "link": null
+            }
+        ],
+        "textbutton": "More details",
+        "popbutton" :"Sorry, No Page",
+        "contact": [{
+            "image": "./images/bg_contact.jpg",
+            "text": "We always there for you,  yeah you are reading this please push button",
+            "button": "contact us",
+            "alt": "pankaj-patel-Fi-GJaLRGKc-unsplash"
+        }]
+}]

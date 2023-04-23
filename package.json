@@ -1,11 +1,12 @@
 {
-  "name": "mycompany",
+  "name": "theme",
   "version": "1.0.0",
   "private": true,
-  "description": "mycompany",
+  "description": "my theme design gatsby js",
   "author": "nndwn",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "theme"
   ],
   "scripts": {
     "develop": "gatsby develop",
@@ -15,22 +16,19 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mdx-js/react": "^2.3.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "color-alpha": "^1.1.3",
-    "gatsby": "^5.6.0",
-    "gatsby-plugin-emotion": "^8.6.0",
-    "gatsby-plugin-image": "^3.4.0",
-    "gatsby-plugin-manifest": "^5.4.0",
-    "gatsby-plugin-mdx": "^5.7.0",
-    "gatsby-plugin-sharp": "^5.4.0",
-    "gatsby-plugin-sitemap": "^6.4.0",
-    "gatsby-source-filesystem": "^5.6.0",
-    "gatsby-transformer-json": "^5.4.0",
-    "gatsby-transformer-sharp": "^5.4.0",
+    "gatsby": "^5.9.0",
+    "gatsby-plugin-emotion": "^8.9.0",
+    "gatsby-plugin-google-gtag": "^5.9.0",
+    "gatsby-plugin-image": "^3.9.0",
+    "gatsby-plugin-manifest": "^5.9.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
+    "gatsby-source-filesystem": "^5.9.0",
+    "gatsby-transformer-json": "^5.9.0",
+    "gatsby-transformer-sharp": "^5.9.0",
     "react": "^18.2.0",
-    "react-body-classname": "^1.3.1",
     "react-dom": "^18.2.0"
   }
 }

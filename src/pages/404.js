@@ -1,58 +1,49 @@
 import * as React from "react"
-import Layout from "../components/layout/layout"
-import Seo from "../components/head/seo"
-import Logo from "../components/layout/logo"
-import { css } from "@emotion/react"
+import { Link } from "gatsby"
 
-const notfound = css`
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
-    background: var(--dark);
-    p {
-        font-size: 0.8rem;
-        margin-bottom: 3rem;
-    }
-`
+const pageStyles = {
+  color: "#232129",
+  padding: "96px",
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+}
+const headingStyles = {
+  marginTop: 0,
+  marginBottom: 64,
+  maxWidth: 320,
+}
+
+const paragraphStyles = {
+  marginBottom: 48,
+}
+const codeStyles = {
+  color: "#8A6534",
+  padding: 4,
+  backgroundColor: "#FFF4DB",
+  fontSize: "1.25rem",
+  borderRadius: 4,
+}
 
 const NotFoundPage = () => {
   return (
-    <Layout>
-       <div css={notfound}>
-            <div>
-                <p>So dark, Nothing in here</p>
-                <Logo
-                    size={20} 
-                    style={css`
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        circle {
-                            fill: var(--white);
-                        }
-                        h1 {
-                            font-size: 1rem;
-                            margin-left: 0.5rem;
-                        }
-                    `}
-                />
-            </div>
-        </div>
-    </Layout>
+    <main style={pageStyles}>
+      <h1 style={headingStyles}>Page not found</h1>
+      <p style={paragraphStyles}>
+        Sorry 😔, we couldn’t find what you were looking for.
+        <br />
+        {process.env.NODE_ENV === "development" ? (
+          <>
+            <br />
+            Try creating a page in <code style={codeStyles}>src/pages/</code>.
+            <br />
+          </>
+        ) : null}
+        <br />
+        <Link to="/">Go home</Link>.
+      </p>
+    </main>
   )
 }
 
-
 export default NotFoundPage
 
-export const Head = ({data}) => (
-  <>
-      <Seo 
-          robots="nofollow, noindex"
-          title= "404 Hopeless"
-      />
-  </>
-)
+export const Head = () => <title>Not found</title>

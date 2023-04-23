@@ -1,7 +1,7 @@
 import React from "react";
-import Css from "../rootCss";
+import Css from "./rootCss";
 
-const Layout = ({page, children}) => {
+const Layout = ({children}) => {
     return(
     <Css>
         {children}

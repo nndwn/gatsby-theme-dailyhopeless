@@ -1,23 +1,13 @@
-import React, {useState, useEffect} from "react";
-import Icons from "../icons";
+import React from "react";
+import Icons from "./icons";
 import { css } from "@emotion/react";
-import { color } from "../../rootCss";
-import { firstLetter } from "../../utils";
+import { color } from "./rootCss";
+import { firstLetter } from "./utils";
 
 const Button = ({name, pop, icon, link, iconsize}) => {
-    const [show, setShow] = useState(false)
-  
-
-    useEffect (() => {
-        function listing () {
-            setShow(false)
-        }
-        if (show && true) {
-            window.addEventListener("click", listing,true)
-        } 
-    },[show])
+    const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
     return(
-    <div css = {css`
+    <div ref={ref} css = {css`
         position: relative;
         display: flex;
         a {
@@ -62,22 +52,39 @@ const Button = ({name, pop, icon, link, iconsize}) => {
             }
         }
     `}>
-       <a href={link} id="nopage"  onClick={() => {
-            setShow(!show)
-        }}>
+       <a href={link} id="nopage"  onClick={()=> {setIsComponentVisible(!isComponentVisible)}}>
             <span>{name}</span>
                 <Icons 
                     size={iconsize}
                     icon={icon}
                 /> 
         </a>
-        { link === null && show ? 
-        <div id="Nopages" >
+        {/* { link === null ? : null} */}
+         {isComponentVisible && link === null && <div  id="Nopages" >
             <span>{firstLetter(pop)}</span>
-        </div>
-        : ""
-        }
+        </div>}
+        
     </div>
 )}
+
+export function useComponentVisible(initialIsVisible) {
+    const [isComponentVisible, setIsComponentVisible] = React.useState(initialIsVisible);
+    const ref = React.useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+            setIsComponentVisible(false);
+        }
+    };
+
+    React.useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
+
+    return { ref, isComponentVisible, setIsComponentVisible };
+}
 
 export default Button
