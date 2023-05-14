@@ -146,7 +146,7 @@ const Headline = ({title, data, scroll}) => {
         }
         ${mx[2]}{
             & > div {
-                bottom: 0;
+                bottom: 2.5rem;
             }
         }
     `}>

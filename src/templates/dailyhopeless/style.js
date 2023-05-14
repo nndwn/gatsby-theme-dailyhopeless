@@ -339,7 +339,7 @@ ${mq[2]}{
 
 export const footer = css`
     > div {
-        > div {
+        > a {
             display: flex;
             background-color: ${color.yellow};
             padding: 0.5rem 1rem;

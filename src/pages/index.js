@@ -1,5 +1,5 @@
 import React from "react"
-import Template from "../tempaltes/dailyhopeless/template"
+import Template from "../templates/dailyhopeless/template"
 import Seo from "../components/seo"
 import Data from "../components/Data"
 
